@@ -96,6 +96,12 @@ class Renderer:
         rect = label.get_rect(center=(config.width // 2, config.height // 2))
         self.screen.blit(label, rect)
 
+        #NEW: for issue1
+        message="Press R to restart"
+        label = self.result_font.render(message, True, config.color_result)
+        rect = label.get_rect(center=(config.width // 2, config.height // 2+50))
+        self.screen.blit(label,rect)
+
 
 class InputController:
     """Translates input events into game and board actions."""
