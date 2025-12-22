@@ -31,6 +31,9 @@ class Renderer:
         self.font = pygame.font.Font(config.font_name, config.font_size)
         self.header_font = pygame.font.Font(config.font_name, config.header_font_size)
         self.result_font = pygame.font.Font(config.font_name, config.result_font_size)
+        self.result_font = pygame.font.Font(config.font_name, config.result_font_size) #for issue1
+        self.hint_font = pygame.font.Font(config.font_name, config.font_size) #for issue1
+
 
     def cell_rect(self, col: int, row: int) -> Rect:
         """Return the rectangle in pixels for the given grid cell."""
@@ -97,10 +100,9 @@ class Renderer:
         self.screen.blit(label, rect)
 
         #NEW: for issue1
-        message="Press R to restart"
-        label = self.result_font.render(message, True, config.color_result)
-        rect = label.get_rect(center=(config.width // 2, config.height // 2+50))
-        self.screen.blit(label,rect)
+        hint = self.font.render("Press R to restart", True, config.color_result)
+        hint_rect = hint.get_rect(center=(config.width // 2, config.height // 2 + 30))
+        self.screen.blit(hint, hint_rect)
 
 
 class InputController:
