@@ -266,14 +266,13 @@ class Game:
                     self.reset()
                 elif event.key == pygame.K_h: #for issue 4 & 5
                    self.hintmode= not self.hintmode
-                   
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.input.handle_mouse(event.pos, event.button)
 
-                #NEW: for issue2
                 if not self.started:
                     self.started = True
-                    self.start_ticks_ms = pygame.time.get_ticks() 
+                    self.start_ticks_ms = pygame.time.get_ticks()
                     
         if (self.board.game_over or self.board.win) and self.started and not self.end_ticks_ms:
             self.end_ticks_ms = pygame.time.get_ticks()
