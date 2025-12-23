@@ -106,13 +106,13 @@ class Renderer:
         overlay = pygame.Surface((config.width, config.height), pygame.SRCALPHA)
         overlay.fill((0, 0, 0, config.result_overlay_alpha))
         self.screen.blit(overlay, (0, 0))
+
         label = self.result_font.render(text, True, config.color_result)
-        rect = label.get_rect(center=(config.width // 2, config.height // 2))
+        rect = label.get_rect(center=(config.width // 2, config.height // 2 - 20))
         self.screen.blit(label, rect)
 
-        #NEW: for issue1
         hint = self.font.render("Press R to restart", True, config.color_result)
-        hint_rect = hint.get_rect(center=(config.width // 2, config.height // 2 + 30))
+        hint_rect = hint.get_rect(center=(config.width // 2, config.height // 2 + 40))
         self.screen.blit(hint, hint_rect)
 
 
